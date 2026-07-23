@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Product Details</title>
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+</head>
+
+<body>
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="assets/img/logo.png" alt="">
+                <h1 class="sitename">Javascript store</h1>
+            </a>
+
+            <div class="header-social-links">
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="github"><i class="bi bi-github"></i></a>
+            </div>
+
+        </div>
+    </header>
+    <main class="main">
+        <section class="section container">
+            <nav class="navbar navbar-dark bg-dark p-1">
+
+                <div class="container">
+
+                    <a
+                        href="index.html"
+                        class="navbar-brand">
+
+                        Virtual Store
+
+                    </a>
+
+                    <a href="cart.html" class="btn btn-warning">
+
+                        Cart
+
+                        <span
+                            id="cartcount"
+                            class="badge bg-dark">
+                            0
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+            <div class="container mt-5">
+
+                <div id="product-details"></div>
+
+            </div>
+        </section>
+    </main>
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Xplorandia</strong> <span>All Rights Reserved</span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href=""><i class="bi bi-github"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/product.js"></script>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

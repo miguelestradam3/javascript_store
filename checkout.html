@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1">
+
+    <title>Checkout</title>
+
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+        
+
+</head>
+<body>
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+                <img src="assets/img/logo.png" alt="">
+                <h1 class="sitename">Javascript store</h1>
+            </a>
+
+            <div class="header-social-links">
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="github"><i class="bi bi-github"></i></a>
+            </div>
+
+        </div>
+    </header>
+    <main class="main">
+        <section class="section container">
+            <nav class="navbar navbar-dark bg-dark p-1">
+
+                <div class="container">
+
+                    <a
+                        href="index.html"
+                        class="navbar-brand">
+
+                        Virtual Store
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+            <div class="container my-5">
+
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <!-- Contact Section -->
+                        <div class="container contact">
+                            <form id="checkoutForm" class="php-email-form">
+                                <div class="row gy-4">
+
+                                    <div class="col-md-6">
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Your Last Name" required>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="city" placeholder="Your City" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" name="zipcode" placeholder="ZIP Code" required>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input type="text" class="form-control" name="address" placeholder="Your Address" required>
+                                    </div>
+
+                                </div>
+                            </form><!-- End Contact Form -->
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <div class="card bg-dark text-white shadow-lg border-0 rounded-4">
+
+                            <div class="card-body">
+
+                                <h3>
+                                    Order Summary
+                                </h3>
+
+                                <div id="order-summary"></div>
+
+                                <hr>
+
+                                <h4>
+
+                                    Total:
+
+                                    <span id="checkout-total">
+
+                                    </span>
+
+                                </h4>
+
+                                <button
+                                    id="placeOrder"
+                                    class="btn btn-success w-100 mt-3">
+
+                                    Place Order
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+                <div
+                    id="cartToast"
+                    class="toast align-items-center text-bg-success border-0">
+
+                    <div class="d-flex">
+
+                        <div
+                            id="toastMessage"
+                            class="toast-body">
+                        </div>
+
+                        <button
+                            class="btn-close btn-close-white me-2 m-auto"
+                            data-bs-dismiss="toast">
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+    <footer id="footer" class="footer">
+
+        <div class="container">
+            <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Xplorandia</strong> <span>All Rights Reserved</span></p>
+            </div>
+            <div class="social-links d-flex justify-content-center">
+                <a href=""><i class="bi bi-github"></i></a>
+                <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/checkout.js"></script>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
