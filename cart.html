@@ -4,112 +4,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Virtual Store</title>
+    <meta name="description" content="Review your shopping bag, manage item quantities, and proceed to checkout with our secure store.">
 
-    <title>Shopping Cart</title>
+    <!-- Favicons -->
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
 
+    <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Main CSS Files -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <header id="header" class="header d-flex align-items-center sticky-top">
-        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+    <!-- Site Header -->
+    <header id="header" class="site-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark py-3">
+            <div class="container">
+                <!-- Brand Logo & Name -->
+                <a href="index.html" class="brand-logo-wrap">
+                    <img src="assets/img/logo.png" alt="Store Logo" class="brand-logo-img">
+                    <div class="d-flex align-items-center">
+                        <span class="brand-name">Virtual Store</span>
+                        <span class="brand-badge d-none d-sm-inline-block">JS Edition</span>
+                    </div>
+                </a>
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/logo.png" alt="">
-                <h1 class="sitename">Javascript store</h1>
-            </a>
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-2 text-white"></i>
+                </button>
 
-            <div class="header-social-links">
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="github"><i class="bi bi-github"></i></a>
+                <!-- Navigation Links & Cart -->
+                <div class="collapse navbar-collapse" id="siteNavbar">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="index.html">
+                                <i class="bi bi-grid-fill me-1"></i> Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom active" href="cart.html">
+                                <i class="bi bi-bag-check me-1"></i> Cart
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="checkout.html">
+                                <i class="bi bi-credit-card me-1"></i> Checkout
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Social Quick Links -->
+                        <div class="d-none d-xl-flex gap-2">
+                            <a href="https://github.com" target="_blank" rel="noopener" class="social-pill-btn" title="GitHub">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill-btn" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                        </div>
+
+                        <!-- Cart Pill Button with Dynamic Badge -->
+                        <a href="cart.html" class="header-cart-btn" title="View Shopping Cart">
+                            <i class="bi bi-cart3 fs-5"></i>
+                            <span>Cart</span>
+                            <span id="cartcount" class="cart-badge">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section container my-4">
+            <!-- Header Title -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+                <div>
+                    <h1 class="display-6 fw-bold text-white mb-1">
+                        <i class="bi bi-bag-check text-success me-2"></i>Shopping Cart
+                    </h1>
+                    <p class="text-secondary small mb-0">Review your selected items and adjust quantities.</p>
+                </div>
+
+                <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-3 py-2 mt-2 mt-sm-0">
+                    <i class="bi bi-arrow-left me-1"></i> Back to Shop
+                </a>
             </div>
 
-        </div>
-    </header>
-    <main class="main">
-        <section class="section container">
-            <nav class="navbar navbar-dark bg-dark p-1">
-                <div class="container">
+            <div class="row g-4">
+                <!-- Cart Items Column -->
+                <div class="col-lg-8">
+                    <div id="cart-items"></div>
 
-                    <a href="index.html" class="navbar-brand">
-                        Virtual Store
-                    </a>
-
-                    <a
-                        href="cart.html"
-                        class="btn btn-warning">
-
-                        Cart
-
-                        <span
-                            id="cartcount"
-                            class="badge bg-dark">
-                            0
-                        </span>
-
-                    </a>
-
-                </div>
-            </nav>
-
-            <div class="container my-5">
-
-                <h2 class="mb-4">
-                    Shopping Cart
-                </h2>
-
-                <div id="cart-items"></div>
-
-                <div class="text-end mt-4">
-
-                    <h3>
-                        Total:
-                        <span id="cart-total">$0.00</span>
-                    </h3>
-
-                    <button
-                        id="clear-cart"
-                        class="btn btn-danger">
-                        Clear Cart
-                    </button>
-
-                    <a href="checkout.html">
-                        <button
-                            class="btn btn-success">
-                            Checkout
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <button id="clear-cart" class="btn btn-outline-danger btn-sm rounded-pill px-3 py-2">
+                            <i class="bi bi-trash3 me-1"></i> Clear Cart
                         </button>
-                    </a>
-
+                    </div>
                 </div>
 
+                <!-- Order Summary Column -->
+                <div class="col-lg-4">
+                    <div class="summary-card">
+                        <h4 class="text-white fw-bold mb-4">Cart Summary</h4>
+
+                        <div class="d-flex justify-content-between mb-2 text-secondary">
+                            <span>Standard Shipping</span>
+                            <span class="text-success fw-semibold">FREE</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mb-2 text-secondary">
+                            <span>Estimated Tax</span>
+                            <span>Included</span>
+                        </div>
+
+                        <hr class="border-secondary opacity-25 my-3">
+
+                        <div class="d-flex justify-content-between align-items-baseline mb-4">
+                            <span class="text-white fs-5 fw-bold">Total:</span>
+                            <span id="cart-total" class="text-success display-6 fw-bold">$0.00</span>
+                        </div>
+
+                        <a href="checkout.html" id="checkout-btn" class="btn btn-success w-100 py-3 rounded-pill fw-semibold shadow-sm d-flex align-items-center justify-content-center gap-2 mb-3">
+                            <i class="bi bi-lock-fill"></i> Proceed to Checkout
+                        </a>
+
+                        <div class="text-center text-secondary small">
+                            <i class="bi bi-shield-check text-success me-1"></i> Guaranteed safe & secure checkout
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    </main>
-    <footer id="footer" class="footer">
 
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Xplorandia</strong> <span>All Rights Reserved</span></p>
-            </div>
-            <div class="social-links d-flex justify-content-center">
-                <a href=""><i class="bi bi-github"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+        <!-- Toast Notifications -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+            <div
+                id="cartToast"
+                class="toast align-items-center text-bg-success border-0 shadow-lg rounded-3"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body d-flex align-items-center gap-2" id="toastMessage">
+                        <i class="bi bi-check-circle-fill"></i> Cart updated!
+                    </div>
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white me-2 m-auto"
+                        data-bs-dismiss="toast"
+                        aria-label="Close">
+                    </button>
+                </div>
             </div>
         </div>
+    </main>
 
+    <!-- Site Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <!-- Trust & Features Banner -->
+            <div class="footer-trust-grid">
+                <div class="row g-4">
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>Free Fast Delivery</h6>
+                                <p>On all orders over $50</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>Secure Checkout</h6>
+                                <p>256-bit SSL encrypted</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>30-Day Returns</h6>
+                                <p>Money-back guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>24/7 Support</h6>
+                                <p>Dedicated expert help</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Footer Links & Information -->
+            <div class="row g-4 py-4">
+                <!-- Column 1: Brand & Bio -->
+                <div class="col-lg-4 col-md-6 footer-brand">
+                    <h4>
+                        <img src="assets/img/logo.png" alt="" style="height: 28px; width: auto;">
+                        Virtual Store
+                    </h4>
+                    <p class="footer-text">
+                        Discover top-tier tech gadgets, smart workspace gear, and lifestyle electronics designed to upgrade your daily productivity and entertainment.
+                    </p>
+                    <div class="footer-social-links">
+                        <a href="https://github.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> All Products</a></li>
+                        <li><a href="cart.html"><i class="bi bi-chevron-right text-success small"></i> View Cart</a></li>
+                        <li><a href="checkout.html"><i class="bi bi-chevron-right text-success small"></i> Checkout</a></li>
+                        <li><a href="index.html#search"><i class="bi bi-chevron-right text-success small"></i> Search Catalog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Categories -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-heading">Categories</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Electronics</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Furniture</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Home & Living</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Gaming Gear</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-heading">Stay Connected</h5>
+                    <p class="footer-text mb-3">Subscribe to receive exclusive deals, new arrivals, and special tech updates straight to your inbox.</p>
+                    <form id="footerNewsletterForm" class="newsletter-box d-flex gap-2" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to our newsletter!'); this.reset();">
+                        <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Your email">
+                        <button type="submit" class="btn btn-subscribe text-nowrap">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Strip -->
+            <div class="footer-bottom border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+                <p class="text-secondary mb-0">
+                    © 2026 <strong class="text-white">Virtual Store</strong>. All Rights Reserved. Built with JavaScript & Bootstrap.
+                </p>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <span class="payment-badge"><i class="bi bi-credit-card-2-front"></i> Visa</span>
+                    <span class="payment-badge"><i class="bi bi-credit-card"></i> Mastercard</span>
+                    <span class="payment-badge"><i class="bi bi-wallet2"></i> PayPal</span>
+                    <span class="payment-badge"><i class="bi bi-apple"></i> Apple Pay</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Main JS Files -->
     <script src="assets/js/products.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/cartPage.js"></script>
-
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
+
 </html>

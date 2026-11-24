@@ -100,13 +100,17 @@ function updateCartCounter() {
 }
 
 function showToast(message) {
+    const toastEl = document.getElementById("cartToast");
+    const msgEl = document.getElementById("toastMessage");
+    if (!toastEl || !msgEl) return;
 
-    document.getElementById("toastMessage").textContent = message;
-
-    const toast = new bootstrap.Toast(
-        document.getElementById("cartToast")
-    );
-
+    msgEl.textContent = message;
+    const toast = new bootstrap.Toast(toastEl);
     toast.show();
-
 }
+
+// Auto-sync cart badge across all pages
+document.addEventListener("DOMContentLoaded", updateCartCounter);
+window.addEventListener("storage", updateCartCounter);
+updateCartCounter();
+

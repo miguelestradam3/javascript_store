@@ -142,75 +142,69 @@ function changePage(page) {
 }
 
 function displayProducts(list = filteredProducts) {
-
     container.innerHTML = "";
 
+    if (list.length === 0) {
+        container.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <div class="p-5 rounded-4" style="background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1);">
+                    <i class="bi bi-search fs-1 text-secondary mb-3 d-block"></i>
+                    <h4 class="text-white">No products found</h4>
+                    <p class="text-secondary">Try adjusting your search criteria or resetting filters.</p>
+                </div>
+            </div>
+        `;
+        renderPagination(list);
+        return;
+    }
+
     const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
-
     const end = start + PRODUCTS_PER_PAGE;
-
     const pageProducts = list.slice(start, end);
 
     pageProducts.forEach(product => {
-
         container.innerHTML += `
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card h-100 bg-dark text-white shadow-lg border-0">
-
-                <div class="d-flex justify-content-center align-items-center p-3" style="height:250px;">
-
-                    <a href="product.html?id=${product.id}">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="product-card h-100">
+                <span class="category-pill">${product.category}</span>
+                <div class="image-container">
+                    <a href="product.html?id=${product.id}" class="image-link">
                         <img
                             src="${product.image}"
-                            class="img-fluid"
-                            style="max-height:220px;">
+                            alt="${product.name}"
+                            class="product-image img-fluid">
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                        <span class="text-warning small"><i class="bi bi-star-fill me-1"></i>${product.rating}</span>
+                        <span class="text-secondary small">In stock: ${product.stock}</span>
+                    </div>
+
+                    <a href="product.html?id=${product.id}" class="product-title">
+                        ${product.name}
                     </a>
 
+                    <p class="product-desc">${product.description}</p>
+
+                    <div class="product-footer">
+                        <span class="price">$${product.price.toFixed(2)}</span>
+                        <button
+                            class="btn-add-cart"
+                            onclick="addToCart(${product.id})">
+                            <i class="bi bi-cart-plus"></i> Add
+                        </button>
+                    </div>
                 </div>
-
-                <div class="card-body d-flex flex-column">
-
-                    <h5>
-
-                        <a
-                            href="product.html?id=${product.id}"
-                            class="text-decoration-none text-dark">
-
-                            ${product.name}
-
-                        </a>
-
-                    </h5>
-
-                    <p class="price">
-                        $${product.price.toFixed(2)}
-                    </p>
-
-                    <p>${product.description}</p>
-
-                    <button
-                        class="btn btn-success mt-auto"
-                        onclick="addToCart(${product.id})">
-
-                        Add to Cart
-
-                    </button>
-
-                </div>
-
             </div>
-
         </div>
-
         `;
-
     });
 
     renderPagination(list);
-
 }
+
 
 loadCategories();
 

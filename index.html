@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - PhotoFolio Bootstrap Template</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <title>Virtual Store - Discover Quality Products</title>
+    <meta name="description" content="A modern JavaScript virtual store showcasing electronics, furniture, and home gadgets with live filtering, pagination, cart management, and seamless checkout.">
 
     <!-- Favicons -->
     <link href="assets/img/logo.png" rel="icon">
@@ -16,175 +15,307 @@
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Main CSS File -->
+    <!-- Main CSS Files -->
     <link href="assets/css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <header id="header" class="header d-flex align-items-center sticky-top">
-        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-            <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="assets/img/logo.png" alt="">
-                <h1 class="sitename">Javascript store</h1>
-            </a>
-
-            <div class="header-social-links">
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <a href="#" class="github"><i class="bi bi-github"></i></a>
-            </div>
-
-        </div>
-    </header>
-    <main class="main p-3">
-        <section class="section container my-5">
-            <div class="row mb-4">
-                <nav class="navbar navbar-dark bg-dark p-1">
-                    <div class="container">
-
-                        <span class="navbar-brand">
-                            Your cart
-                        </span>
-
-                        <a
-                            href="cart.html"
-                            class="btn btn-warning">
-
-                            Cart
-
-                            <span
-                                id="cartcount"
-                                class="badge bg-dark">
-                                0
-                            </span>
-
-                        </a>
-
+    <!-- Site Header -->
+    <header id="header" class="site-header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark py-3">
+            <div class="container">
+                <!-- Brand Logo & Name -->
+                <a href="index.html" class="brand-logo-wrap">
+                    <img src="assets/img/logo.png" alt="Store Logo" class="brand-logo-img">
+                    <div class="d-flex align-items-center">
+                        <span class="brand-name">Virtual Store</span>
+                        <span class="brand-badge d-none d-sm-inline-block">JS Edition</span>
                     </div>
-                </nav>
-            </div>
-            <div class="row mb-4">
+                </a>
 
-                <div class="col-md-4">
-                    <input
-                        type="text"
-                        id="search"
-                        class="form-control"
-                        placeholder="Search products...">
-                </div>
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-2 text-white"></i>
+                </button>
 
-                <div class="col-md-3">
-                    <select
-                        id="category"
-                        class="form-select">
+                <!-- Navigation Links & Cart -->
+                <div class="collapse navbar-collapse" id="siteNavbar">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom active" href="index.html">
+                                <i class="bi bi-grid-fill me-1"></i> Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="cart.html">
+                                <i class="bi bi-bag-check me-1"></i> Cart
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-custom" href="checkout.html">
+                                <i class="bi bi-credit-card me-1"></i> Checkout
+                            </a>
+                        </li>
+                    </ul>
 
-                        <option value="All">All Categories</option>
-
-                    </select>
-                </div>
-
-                <div class="col-md-3">
-                    <input
-                        type="number"
-                        id="maxPrice"
-                        class="form-control"
-                        placeholder="Maximum price">
-                </div>
-
-                <div class="col-md-2">
-                    <select
-                        id="sort"
-                        class="form-select">
-
-                        <option value="default">Sort By</option>
-                        <option value="name-asc">Name (A-Z)</option>
-                        <option value="name-desc">Name (Z-A)</option>
-                        <option value="price-asc">Price (Low to High)</option>
-                        <option value="price-desc">Price (High to Low)</option>
-
-                    </select>
-                </div>
-
-            </div>
-            <div class="row" id="products">
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-
-                    <nav class="mt-4">
-
-                        <ul
-                            id="pagination"
-                            class="pagination justify-content-center">
-
-                        </ul>
-
-                    </nav>
-
-                </div>
-            </div>
-        </section>
-
-        <section class="section container my-5">
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
-
-                <div
-                    id="cartToast"
-                    class="toast align-items-center text-bg-success border-0"
-                    role="alert"
-                    aria-live="assertive"
-                    aria-atomic="true">
-
-                    <div class="d-flex">
-
-                        <div
-                            class="toast-body"
-                            id="toastMessage">
-
-                            Product added!
-
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Social Quick Links -->
+                        <div class="d-none d-xl-flex gap-2">
+                            <a href="https://github.com" target="_blank" rel="noopener" class="social-pill-btn" title="GitHub">
+                                <i class="bi bi-github"></i>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill-btn" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
                         </div>
 
-                        <button
-                            type="button"
-                            class="btn-close btn-close-white me-2 m-auto"
-                            data-bs-dismiss="toast">
-                        </button>
-
+                        <!-- Cart Pill Button with Dynamic Badge -->
+                        <a href="cart.html" class="header-cart-btn" title="View Shopping Cart">
+                            <i class="bi bi-cart3 fs-5"></i>
+                            <span>Cart</span>
+                            <span id="cartcount" class="cart-badge">0</span>
+                        </a>
                     </div>
-
                 </div>
+            </div>
+        </nav>
+    </header>
 
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="py-4 mb-2 text-center">
+            <div class="container">
+                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 mb-2">
+                    <i class="bi bi-lightning-charge-fill me-1"></i> Premium Selection
+                </span>
+                <h1 class="display-6 fw-bold text-white mb-2">Explore Our Curated Catalog</h1>
+                <p class="text-secondary mx-auto" style="max-width: 620px;">
+                    Discover state-of-the-art electronics, ergonomic workplace gear, and lifestyle essentials with fast checkout.
+                </p>
             </div>
         </section>
-    </main>
 
-    <footer id="footer" class="footer">
+        <!-- Product Listing & Filter Section -->
+        <section class="section container pt-0">
+            <!-- Filter Toolbar -->
+            <div class="filter-toolbar">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0 text-secondary" style="border-color: rgba(255,255,255,0.1);">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input
+                                type="text"
+                                id="search"
+                                class="form-control border-start-0"
+                                placeholder="Search products by title...">
+                        </div>
+                    </div>
 
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Xplorandia</strong> <span>All Rights Reserved</span></p>
+                    <div class="col-lg-3 col-md-6">
+                        <select id="category" class="form-select">
+                            <option value="All">All Categories</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0 text-secondary" style="border-color: rgba(255,255,255,0.1);">
+                                <i class="bi bi-currency-dollar"></i>
+                            </span>
+                            <input
+                                type="number"
+                                id="maxPrice"
+                                class="form-control border-start-0"
+                                placeholder="Max budget limit">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6">
+                        <select id="sort" class="form-select">
+                            <option value="default">Sort by</option>
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="social-links d-flex justify-content-center">
-                <a href=""><i class="bi bi-github"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+
+            <!-- Products Grid -->
+            <div class="row" id="products"></div>
+
+            <!-- Pagination Container -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <nav aria-label="Product navigation">
+                        <ul id="pagination" class="pagination justify-content-center"></ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1090;">
+            <div
+                id="cartToast"
+                class="toast align-items-center text-bg-success border-0 shadow-lg rounded-3"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body d-flex align-items-center gap-2" id="toastMessage">
+                        <i class="bi bi-check-circle-fill"></i> Product added!
+                    </div>
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white me-2 m-auto"
+                        data-bs-dismiss="toast"
+                        aria-label="Close">
+                    </button>
+                </div>
             </div>
         </div>
+    </main>
 
+    <!-- Site Footer -->
+    <footer id="footer" class="site-footer">
+        <div class="container">
+            <!-- Trust & Features Banner -->
+            <div class="footer-trust-grid">
+                <div class="row g-4">
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>Free Fast Delivery</h6>
+                                <p>On all orders over $50</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>Secure Checkout</h6>
+                                <p>256-bit SSL encrypted</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-arrow-repeat"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>30-Day Returns</h6>
+                                <p>Money-back guarantee</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="trust-item">
+                            <div class="trust-icon">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <div class="trust-info">
+                                <h6>24/7 Support</h6>
+                                <p>Dedicated expert help</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Footer Links & Information -->
+            <div class="row g-4 py-4">
+                <!-- Column 1: Brand & Bio -->
+                <div class="col-lg-4 col-md-6 footer-brand">
+                    <h4>
+                        <img src="assets/img/logo.png" alt="" style="height: 28px; width: auto;">
+                        Virtual Store
+                    </h4>
+                    <p class="footer-text">
+                        Discover top-tier tech gadgets, smart workspace gear, and lifestyle electronics designed to upgrade your daily productivity and entertainment.
+                    </p>
+                    <div class="footer-social-links">
+                        <a href="https://github.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill-btn" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> All Products</a></li>
+                        <li><a href="cart.html"><i class="bi bi-chevron-right text-success small"></i> View Cart</a></li>
+                        <li><a href="checkout.html"><i class="bi bi-chevron-right text-success small"></i> Checkout</a></li>
+                        <li><a href="#search"><i class="bi bi-chevron-right text-success small"></i> Search Catalog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Categories -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5 class="footer-heading">Categories</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Electronics</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Furniture</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Home & Living</a></li>
+                        <li><a href="index.html"><i class="bi bi-chevron-right text-success small"></i> Gaming Gear</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-heading">Stay Connected</h5>
+                    <p class="footer-text mb-3">Subscribe to receive exclusive deals, new arrivals, and special tech updates straight to your inbox.</p>
+                    <form id="footerNewsletterForm" class="newsletter-box d-flex gap-2" onsubmit="event.preventDefault(); showToast('Thank you for subscribing to our newsletter!'); this.reset();">
+                        <input type="email" class="form-control" placeholder="Enter your email" required aria-label="Your email">
+                        <button type="submit" class="btn btn-subscribe text-nowrap">Join</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Strip -->
+            <div class="footer-bottom border-top border-secondary border-opacity-25 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+                <p class="text-secondary mb-0">
+                    © 2026 <strong class="text-white">Virtual Store</strong>. All Rights Reserved. Built with JavaScript & Bootstrap.
+                </p>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <span class="payment-badge"><i class="bi bi-credit-card-2-front"></i> Visa</span>
+                    <span class="payment-badge"><i class="bi bi-credit-card"></i> Mastercard</span>
+                    <span class="payment-badge"><i class="bi bi-wallet2"></i> PayPal</span>
+                    <span class="payment-badge"><i class="bi bi-apple"></i> Apple Pay</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Main JS File -->
+    <!-- Main JS Files -->
     <script src="assets/js/products.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/app.js"></script>
-
 </body>
 
 </html>
